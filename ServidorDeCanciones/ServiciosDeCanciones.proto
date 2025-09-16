@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package servicios;
+option go_package = "/serviciosCancion";
+
+service serviciosCanciones {
+  rpc buscarCancion (PeticionDTO) returns (RespuestaCancionDTO);
+}
+
+message PeticionDTO {
+  string titulo = 1;
+}
+
+message Cancion {
+  string Titulo = 3;    
+  int32 Tamanio = 4;    
+  string Url = 5;        
+  bool EsActivada = 6; 
+}
+
+message RespuestaCancionDTO {
+  string mensaje = 1;
+  int32 codigo =2;  
+  Cancion objCancion=3;
+}
+
+
